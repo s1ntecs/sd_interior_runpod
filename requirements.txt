@@ -1,7 +1,9 @@
 # --- основные библиотеки для Stable Diffusion ---
-diffusers==0.29.2               # LoRA поддержка через PEFT
-transformers==4.38.2
-accelerate==0.32.0
+             # LoRA поддержка через PEFT
+diffusers==0.25.1
+transformers==4.37.2
+diffusers
+accelerate
 safetensors                     # быстрый и безопасный формат весов
 einops
 omegaconf
