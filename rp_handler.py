@@ -100,7 +100,7 @@ def _switch_lora(lora_name: Optional[str]) -> Optional[str]:
             if hasattr(PIPELINE, "unload_lora_weights"):
                 PIPELINE.unload_lora_weights()
 
-        PIPELINE.load_lora_weights(f"{LORA_DIR}/{lora_name}")
+        PIPELINE.load_lora_weights(f"{LORA_DIR}/{lora_name}", use_peft_backend=True)
         if hasattr(PIPELINE, "fuse_lora"):
             PIPELINE.fuse_lora()
 
