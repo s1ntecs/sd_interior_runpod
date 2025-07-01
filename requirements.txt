@@ -1,25 +1,28 @@
-# CORE DIFFUSION LIBRARIES
-diffusers>=0.30.0           # поддержка SD-пайплайнов  [oai_citation:9‡pypi.org](https://pypi.org/project/diffusers/?utm_source=chatgpt.com)
-transformers>=4.34.0        # CLIPImageProcessor и другие компоненты  [oai_citation:10‡huggingface.co](https://huggingface.co/docs/diffusers/en/installation?utm_source=chatgpt.com)
-peft>=0.6.0                 # для use_peft_backend=True
-accelerate>=0.27,<0.28      # ускорение infer/training
-safetensors                 # безопасный формат весов
+# --- основные библиотеки для Stable Diffusion ---
+diffusers==0.29.2               # LoRA поддержка через PEFT
+transformers==4.38.2
+accelerate>=0.27,<0.28
+safetensors                     # быстрый и безопасный формат весов
+einops
+omegaconf
+huggingface-hub
 
-# MODEL UTILITIES & CONFIG
-einops                      # перестановка тензоров
-omegaconf                   # YAML-конфиги
-huggingface-hub             # HF Hub
+# --- обработка изображений / видео ---
+opencv-python
+Pillow
+numpy
+mediapipe                       # если нужен детектор поз / рук
 
-# IMAGE PROCESSING & DETECTION
-opencv-python               # OpenCV для I/O изображений
-Pillow                      # PIL
-numpy                       # численные операции
-mediapipe                   # опционально: детектор поз/рук
+# --- сетевое / утилиты ---
+aiohttp
+pyyaml
+importlib_metadata              # нужен только на Python < 3.10
 
-# NETWORK & RUNTIME
-aiohttp                     # HTTP-запросы
-pyyaml                      # YAML-парсер
-importlib_metadata          # для Python <3.10
+# --- PEFT (LoRA backend) ---
+peft==0.16.0                     # <-- добавили
 
-# OPTIONAL RUNPOD SDK
-runpod                      # интеграция с RunPod serverless
+# --- RunPod worker ---
+runpod                          
+
+# --- Xformers (опционально, ускоряет память) ---
+# xformers==0.0.25.post1        # закомментируйте, если нет CUDA 12
