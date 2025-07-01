@@ -11,8 +11,19 @@ os.makedirs("loras", exist_ok=True)
 os.makedirs("checkpoints", exist_ok=True)
 
 DEFAULT_MODEL = "checkpoints/xsarchitectural_v11.ckpt"
-LORA_NAMES = [
-    # (тот же список, что выше)
+lora_names = [
+    "XSArchi_110plan彩总.safetensors",
+    "XSArchi_137.safetensors",
+    "XSArchi_141.safetensors",
+    "XSArchi_162BIESHU.safetensors",
+    "XSarchitectural-38InteriorForBedroom.safetensors",
+    "XSarchitectural_33WoodenluxurystyleV2.safetensors",
+    "house_architecture_Exterior_SDlife_Chiasedamme.safetensors",
+    "xsarchitectural-15Nightatmospherearchitecture.safetensors",
+    "xsarchitectural-18Whiteexquisiteinterior.safetensors",
+    "xsarchitectural-19Houseplan (1).safetensors",
+    "xsarchitectural-19Houseplan.safetensors",
+    "xsarchitectural-7.safetensors"
 ]
 
 # ------------------------- загрузка весов -------------------------
@@ -63,7 +74,7 @@ def get_pipeline():
         torch_dtype=torch.float16,
         scheduler=scheduler,
         local_files_only=True,          # ← строго оффлайн
-        # load_safety_checker=False,    # если safety-checker не нужен
+        load_safety_checker=False,    # если safety-checker не нужен
     )
     return pipe
 
