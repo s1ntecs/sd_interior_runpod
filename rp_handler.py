@@ -36,7 +36,7 @@ LORA_LIST = [
     "xsarchitectural-7.safetensors",
 ]
 
-DEFAULT_MODEL = "checkpoints/xsarchitectural_v10interiordesignforxs.ckpt"
+DEFAULT_MODEL = "checkpoints/xsarchitectural_v11.ckpt"
 logger = RunPodLogger()
 
 

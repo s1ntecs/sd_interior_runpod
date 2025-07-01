@@ -7,7 +7,7 @@ from huggingface_hub import hf_hub_download
 os.makedirs("./loras", exist_ok=True)
 os.makedirs("./checkpoints", exist_ok=True)
 
-DEFAULT_MODEL = "checkpoints/xsarchitectural_v10interiordesignforxs.ckpt"
+DEFAULT_MODEL = "checkpoints/xsarchitectural_v11.ckpt"
 
 lora_names = [
     "XSArchi_110plan彩总.safetensors",
@@ -21,8 +21,7 @@ lora_names = [
     "xsarchitectural-18Whiteexquisiteinterior.safetensors",
     "xsarchitectural-19Houseplan (1).safetensors",
     "xsarchitectural-19Houseplan.safetensors",
-    "xsarchitectural-7.safetensors",
-    "xsarchitectural_v11.ckpt",
+    "xsarchitectural-7.safetensors"
 ]
 
 
@@ -32,8 +31,8 @@ def fetch_checkpoints():
     """
 
     hf_hub_download(
-        repo_id='thanhvn34/xsarchitectural_v10interiordesignforxs',
-        filename='xsarchitectural_v10interiordesignforxs.ckpt',
+        repo_id='sintecs/interior',
+        filename='xsarchitectural_v11.ckpt',
         local_dir='./checkpoints',
         local_dir_use_symlinks=False
     )
