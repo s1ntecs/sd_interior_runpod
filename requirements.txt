@@ -1,25 +1,31 @@
-# Diffusers с поддержкой PEFT/LoRA
-diffusers>=0.30.0              # полная поддержка интеграции с PEFT
-peft>=0.6.0                    # PEFT backend ≥0.6.0 для использования use_peft_backend=True
-transformers>=4.34.0           # совместимая версия Transformers
-accelerate>=0.27,<0.28         # ускорение infer и training pipelines
-safetensors                    # быстрый и безопасный формат весов
+# CORE ML LIBRARIES (CUDA 11.8)
+torch==2.2.1             # PyTorch для CUDA 11.8
+torchvision==0.15.2
+torchaudio==2.2.1
 
-# Утилиты для работы с моделями и конфигами
-einops                         # перестановка тензоров
-omegaconf                      # YAML-конфиги
-huggingface-hub                # загрузка моделей из HF Hub
+# DIFFUSERS + PEFT/LoRA SUPPORT
+diffusers>=0.30.0        # поддержка StableDiffusionPipeline
+transformers>=4.34.0     # содержит CLIPImageProcessor
+peft>=0.6.0              # PEFT backend ≥0.6.0
+accelerate>=0.27,<0.28   # оптимальный билд для infer/training
+safetensors              # быстрый безопасный формат весов
 
-# Библиотеки для предварительной обработки изображений и детекции
-opencv-python                  # OpenCV для чтения/записи изображений
-Pillow                         # работа с изображениями в PIL
-numpy                          # базовые числовые операции
-mediapipe                      # если нужен детектор поз/рук
+# MODEL UTILITIES & CONFIG
+einops                   # перестановка тензоров
+omegaconf                # управление YAML-конфигами
+huggingface-hub          # загрузка моделей из HF-репозиториев
 
-# Сетевая и вспомогательная инфраструктура
-aiohttp                        # асинхронные HTTP-запросы
-pyyaml                         # парсинг YAML
-importlib_metadata             # для Python <3.10
+# IMAGE PROCESSING & DETECTION
+opencv-python            # OpenCV для I/O изображений
+Pillow                   # PIL для работы с изображениями
+numpy                    # базовые численные операции
+mediapipe                # опционально: детекция поз/рук
 
-# RunPod SDK (если используется)
-runpod                         # клиент RunPod для serverless
+# NETWORK & RUNTIME
+aiohttp                  # асинхронные HTTP-запросы
+pyyaml                   # YAML-парсер
+importlib_metadata       # для Python <3.10
+
+# OPTIONAL RUNPOD SDK
+runpod                   # интеграция с RunPod serverless
+xformers==0.0.22         # ускорение attention (если нужно)
