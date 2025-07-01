@@ -1,28 +1,25 @@
-# --- основные библиотеки для Stable Diffusion ---
-diffusers==0.29.2               # LoRA поддержка через PEFT
-transformers==4.38.2
-accelerate>=0.27,<0.28
-safetensors                     # быстрый и безопасный формат весов
-einops
-omegaconf
-huggingface-hub
+# Diffusers с поддержкой PEFT/LoRA
+diffusers>=0.30.0              # полная поддержка интеграции с PEFT
+peft>=0.6.0                    # PEFT backend ≥0.6.0 для использования use_peft_backend=True
+transformers>=4.34.0           # совместимая версия Transformers
+accelerate>=0.27,<0.28         # ускорение infer и training pipelines
+safetensors                    # быстрый и безопасный формат весов
 
-# --- обработка изображений / видео ---
-opencv-python
-Pillow
-numpy
-mediapipe                       # если нужен детектор поз / рук
+# Утилиты для работы с моделями и конфигами
+einops                         # перестановка тензоров
+omegaconf                      # YAML-конфиги
+huggingface-hub                # загрузка моделей из HF Hub
 
-# --- сетевое / утилиты ---
-aiohttp
-pyyaml
-importlib_metadata              # нужен только на Python < 3.10
+# Библиотеки для предварительной обработки изображений и детекции
+opencv-python                  # OpenCV для чтения/записи изображений
+Pillow                         # работа с изображениями в PIL
+numpy                          # базовые числовые операции
+mediapipe                      # если нужен детектор поз/рук
 
-# --- PEFT (LoRA backend) ---
-peft==0.5.0                     # <-- добавили
+# Сетевая и вспомогательная инфраструктура
+aiohttp                        # асинхронные HTTP-запросы
+pyyaml                         # парсинг YAML
+importlib_metadata             # для Python <3.10
 
-# --- RunPod worker ---
-runpod                          
-
-# --- Xformers (опционально, ускоряет память) ---
-# xformers==0.0.25.post1        # закомментируйте, если нет CUDA 12
+# RunPod SDK (если используется)
+runpod                         # клиент RunPod для serverless
