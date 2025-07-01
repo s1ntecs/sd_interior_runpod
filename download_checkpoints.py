@@ -11,7 +11,7 @@ os.makedirs("loras", exist_ok=True)
 os.makedirs("checkpoints", exist_ok=True)
 
 DEFAULT_MODEL = "checkpoints/xsarchitectural_v11.ckpt"
-lora_names = [
+LORA_NAMES = [
     "XSArchi_110plan彩总.safetensors",
     "XSArchi_137.safetensors",
     "XSArchi_141.safetensors",
@@ -25,6 +25,7 @@ lora_names = [
     "xsarchitectural-19Houseplan.safetensors",
     "xsarchitectural-7.safetensors"
 ]
+
 
 # ------------------------- загрузка весов -------------------------
 def fetch_checkpoints() -> None:
