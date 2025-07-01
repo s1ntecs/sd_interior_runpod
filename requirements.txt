@@ -1,31 +1,33 @@
 # CORE ML LIBRARIES (CUDA 11.8)
-torch==2.2.1             # PyTorch для CUDA 11.8
-torchvision==0.15.2
-torchaudio==2.2.1
+torch==2.2.1                   # PyTorch с поддержкой CUDA 11.8  [oai_citation:0‡github.com](https://github.com/googlecolab/colabtools/issues/4344?utm_source=chatgpt.com)
+torchvision==0.17.1            # патч-релиз совместимый с torch 2.2.1  [oai_citation:1‡github.com](https://github.com/pytorch/vision/releases?utm_source=chatgpt.com)
+torchaudio==2.2.1              # версия torchaudio из того же семейства  [oai_citation:2‡github.com](https://github.com/googlecolab/colabtools/issues/4344?utm_source=chatgpt.com)
+
+# ACCELERATION & ATTENTION
+xformers==0.0.22               # ускорение attention, есть билды для cu118  [oai_citation:3‡download.pytorch.org](https://download.pytorch.org/whl/xformers/?utm_source=chatgpt.com)
 
 # DIFFUSERS + PEFT/LoRA SUPPORT
-diffusers>=0.30.0        # поддержка StableDiffusionPipeline
-transformers>=4.34.0     # содержит CLIPImageProcessor
-peft>=0.6.0              # PEFT backend ≥0.6.0
-accelerate>=0.27,<0.28   # оптимальный билд для infer/training
-safetensors              # быстрый безопасный формат весов
+diffusers>=0.30.0              # поддержка StableDiffusionPipeline и LoRA  [oai_citation:4‡huggingface.co](https://huggingface.co/docs/diffusers/en/installation?utm_source=chatgpt.com)
+transformers>=4.34.0           # необходимо для CLIPImageProcessor и других компонентов  [oai_citation:5‡huggingface.co](https://huggingface.co/docs/transformers/en/model_doc/clip?utm_source=chatgpt.com) [oai_citation:6‡github.com](https://github.com/huggingface/diffusers/blob/main/src/diffusers/pipelines/unclip/pipeline_unclip_image_variation.py?utm_source=chatgpt.com)
+peft>=0.6.0                    # PEFT backend ≥ 0.6.0 для use_peft_backend=True  [oai_citation:7‡pypi.org](https://pypi.org/project/peft/?utm_source=chatgpt.com)
+accelerate>=0.27,<0.28         # оптимальный биндинг для infer/training pipelines
+safetensors                    # быстрый и безопасный формат весов
 
 # MODEL UTILITIES & CONFIG
-einops                   # перестановка тензоров
-omegaconf                # управление YAML-конфигами
-huggingface-hub          # загрузка моделей из HF-репозиториев
+einops                         # перестановка тензоров
+omegaconf                      # YAML-конфиги
+huggingface-hub                # загрузка моделей из HF Hub
 
 # IMAGE PROCESSING & DETECTION
-opencv-python            # OpenCV для I/O изображений
-Pillow                   # PIL для работы с изображениями
-numpy                    # базовые численные операции
-mediapipe                # опционально: детекция поз/рук
+opencv-python                  # OpenCV для I/O изображений
+Pillow                         # PIL для работы с изображениями
+numpy                          # базовые численные операции
+mediapipe                      # опционально: детектор поз/рук
 
 # NETWORK & RUNTIME
-aiohttp                  # асинхронные HTTP-запросы
-pyyaml                   # YAML-парсер
-importlib_metadata       # для Python <3.10
+aiohttp                        # асинхронные HTTP-запросы
+pyyaml                         # YAML-парсер
+importlib_metadata             # для Python < 3.10
 
 # OPTIONAL RUNPOD SDK
-runpod                   # интеграция с RunPod serverless
-xformers==0.0.22         # ускорение attention (если нужно)
+runpod                         # интеграция с RunPod serverless
