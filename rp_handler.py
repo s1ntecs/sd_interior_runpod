@@ -1,5 +1,6 @@
 import base64
 import io
+import random
 import time
 from typing import Any, Dict, List, Optional
 
@@ -17,8 +18,8 @@ from runpod.serverless.modules.rp_logger import RunPodLogger
 MAX_SEED: int = np.iinfo(np.int32).max
 DEVICE: str = "cuda" if torch.cuda.is_available() else "cpu"
 DTYPE: torch.dtype = torch.float16 if DEVICE == "cuda" else torch.float32
-MAX_STEPS: int = 25
-DEFAULT_SEED: int = 42
+MAX_STEPS: int = 125
+
 
 LORA_DIR = "./loras"
 LORA_LIST = [
@@ -147,6 +148,7 @@ def handler(job: Dict[str, Any]) -> Dict[str, Any]:
 
         guidance_scale = float(payload.get("guidance_scale", 7.5))
         steps = min(int(payload.get("steps", MAX_STEPS)), MAX_STEPS)
+        DEFAULT_SEED = random.randint(0, MAX_SEED)
         seed = int(payload.get("seed", DEFAULT_SEED))
         generator = torch.Generator(device=DEVICE).manual_seed(seed)
         height = int(payload.get("height", 768))
